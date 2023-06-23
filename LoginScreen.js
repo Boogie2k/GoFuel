@@ -38,7 +38,10 @@ const LoginScreen = ({ navigation }) => {
           <TextInput style={styles.inputs} placeholder="enter your Password" />
         </View>
 
-        <TouchableHighlight style={styles.loginBtn}>
+        <TouchableHighlight
+          onPress={() => navigation.navigate("HomeScreen", { name: "HomePge" })}
+          style={styles.loginBtn}
+        >
           <Text style={{ color: "white", fontWeight: 500, fontSize: 20 }}>
             Login
           </Text>
