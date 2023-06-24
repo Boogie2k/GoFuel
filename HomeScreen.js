@@ -14,7 +14,7 @@ import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   let [text, setText] = useState("witing");
@@ -86,7 +86,12 @@ const HomeScreen = () => {
 
         <View style={styles.inputView}>
           <TextInput style={styles.input} />
-          <TouchableHighlight style={styles.nextBtn}>
+          <TouchableHighlight
+            onPress={() =>
+              navigation.navigate("Paymentoption", { name: "paymentoption" })
+            }
+            style={styles.nextBtn}
+          >
             <Text style={styles.next}>next</Text>
           </TouchableHighlight>
         </View>
@@ -131,7 +136,7 @@ const styles = StyleSheet.create({
     height: 54,
     backgroundColor: "#FBF7F7",
     borderRadius: 30,
-    shadowColor: "black",
+
     elevation: 20,
     justifyContent: "center",
     paddingLeft: 10,
